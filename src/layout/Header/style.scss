@@ -1,0 +1,52 @@
+.header {
+  height: 74px;
+  nav {
+    box-shadow: unset;
+  }
+  .wp-header {
+    height: 74px;
+    background: rgba(10, 10, 10, 0.8);
+    border-bottom: 1px solid #303135;
+    backdrop-filter: blur(5px);
+
+    &__logo {
+      width: pxToRem(110);
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .dropdown-coin {
+      border-left: 1px solid #2a2c2e;
+      button {
+        padding: 0;
+      }
+    }
+
+    .wp-account {
+      border-right: 1px solid #2a2c2e;
+      img {
+        width: pxToRem(44);
+        height: pxToRem(44);
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+    .btn-action {
+      transition: all 0.16s linear;
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
+}
+.wp-tooltip {
+  display: block;
+  position: absolute;
+  right: -20%;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 4px;
+  background: #63595980;
+}
