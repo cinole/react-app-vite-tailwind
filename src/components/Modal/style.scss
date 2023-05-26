@@ -1,0 +1,42 @@
+.wp-modal-confirm-common {
+  width: pxToRem(408);
+  max-width: 90vw;
+  background: #14211f;
+  border: 1px solid #4b4c4c;
+  box-shadow: 0px 4px 6px -2px rgba(18, 25, 38, 0.03),
+    0px 12px 16px -4px rgba(18, 25, 38, 0.08);
+  border-radius: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1.5rem pxToRem(40);
+
+  .modal-title{
+    @include typoFromPx(20, 600, 30);
+  }
+
+  button {
+    position: relative;
+    background: transparent;
+    border: 1px solid $orange;
+    @include typoFromPx(16, 600, 18);
+    @media (max-width: $screenSmall) {
+      @include typo(16px, 600, 18px);
+    }
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-2px);
+      opacity: 0.8;
+    }
+
+    &.btn-ok {
+      background: rgba(242, 224, 65, 0.2);
+    }
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+}

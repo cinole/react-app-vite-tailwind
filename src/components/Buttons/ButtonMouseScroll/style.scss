@@ -1,0 +1,25 @@
+.mouse-scroll {
+    position: fixed;
+    text-align: center;
+    width: 32px;
+    height: 90px;
+    top: calc(100vh - 122px);
+    right: 52px;
+
+    &__text {
+      font-size: 14px;
+      line-height: 17px;
+      margin-top: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transform: rotate(90deg);
+      -webkit-transform: rotate(90deg);
+    }
+}
+
+.mobile-scroll__mouse {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  margin-left: -8px;
+}

@@ -1,0 +1,21 @@
+.wp-warning {
+    &-icon {
+      // width: pxToRem(34);
+      // height: pxToRem(34);
+      // border: 4px solid rgba(242, 224, 65, 0.2);
+      border-radius: 28px;
+  
+      img {
+        width: pxToRem(27);
+        height: pxToRem(27);
+        // background: rgba(242, 224, 65, 0.05);
+        // border: 1px solid #ffd789;
+        border-radius: 28px;
+        margin-top: -.25rem;
+      }
+    }
+    &-text {
+      @include typo(14px, 600, 22px);
+      padding: 0.16rem 1.6rem 0.16rem 2.4rem;
+    }
+  }

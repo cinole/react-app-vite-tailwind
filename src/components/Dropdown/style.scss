@@ -1,0 +1,33 @@
+.wp-dropdown {
+  button {
+    background: none;
+    border-radius: 0;
+    border: none !important;
+    // border-right-color: $border !important;
+    font-size: inherit;
+    color: inherit;
+    &:hover {
+      background: none;
+    }
+  }
+  &__icon {
+    min-width: unset !important;
+  }
+  .MuiPopper-root {
+    .MuiPaper-rounded{
+        overflow: hidden;
+    }
+    ul {
+      padding: 0;
+      li {
+        font-size: inherit;
+        color: inherit;
+        background: unset;
+        &:hover {
+          // background: rgba(138, 145, 149, 0.1);
+          background: rgba(247, 147, 26, 0.1);
+        }
+      }
+    }
+  }
+}
