@@ -1,7 +1,6 @@
 import { toast } from 'react-toastify'
 
-import Modal from '@mui/material/Modal'
-import Backdrop from '@mui/material/Backdrop'
+import Modal from '@/components/Modal'
 import Metamask from '@/static/images/metamask.png'
 import Walletconnect from '@/static/images/walletconnect.png'
 import { useWeb3Context } from '@/context/Web3Context'
@@ -31,15 +30,8 @@ const Index = () => {
 
   return (
     <Modal
-      aria-labelledby="transition-modal-title"
-      aria-describedby="transition-modal-description"
-      open={openModalConnect}
-      // onClose={handleClose}
-      closeAfterTransition
-      BackdropComponent={Backdrop}
-      BackdropProps={{
-        timeout: 500,
-      }}
+      id="modal-connect"
+      defaultOpen={openModalConnect}
     >
       <div className="modal-select-connect position-relative">
         <div className="modal-body-bg" />
@@ -62,12 +54,13 @@ const Index = () => {
           </div>
           <div className="modal-content__btn-group d-flex flex-column">
             {/* {!detectMobile.isMobile() && ( */}
-            <button onClick={() => handleConnect()} className="px-4 py-2 mb-3">
+            <button disabled={loading} onClick={() => handleConnect()} className="px-4 py-2 mb-3">
               <img className="me-3" src={Metamask} alt="metamask" />
               Login with Metamask
             </button>
             {/* )} */}
             <button
+              disabled={loading}
               onClick={() => handleConnect('walletconnect')}
               className="px-4 py-2"
             >
