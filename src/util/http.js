@@ -1,9 +1,9 @@
-import _ from 'lodash'
+// import _ from 'lodash'
 import axios from 'axios'
 
-import store from '@/store'
+// import store from '@/store'
 import { env } from '@/constants/env'
-import { getAccessToken, refreshAccessToken, resetState } from '@/util/auth'
+// import { getAccessToken, refreshAccessToken, resetState } from '@/util/auth'
 
 export const http = axios.create({
   baseURL: env.app.apiUrl,
@@ -13,19 +13,19 @@ export const http = axios.create({
 let isAlreadyFetchingAccessToken = false
 let subscribers = []
 
-const onAccessTokenFetched = (access_token) => {
-  const mappedSubcribers = [...subscribers]
-  mappedSubcribers.forEach((callback) => callback(access_token))
-  subscribers = []
-}
+// const onAccessTokenFetched = (access_token) => {
+//   const mappedSubcribers = [...subscribers]
+//   mappedSubcribers.forEach((callback) => callback(access_token))
+//   subscribers = []
+// }
 
 const addSubscriber = (callback) => {
   subscribers.push(callback)
 }
 
-const resetStateAndDisconnect = _.debounce(() => {
-  resetState()
-}, 1000)
+// const resetStateAndDisconnect = _.debounce(() => {
+//   resetState()
+// }, 1000)
 
 // Add a request interceptor
 http.interceptors.request.use(
@@ -33,7 +33,7 @@ http.interceptors.request.use(
     config.headers.common['Accept-Language'] =
       window.localStorage.getItem('locale') || env.app.locale
 
-    const accessToken = getAccessToken(store.getState().auth.credentials)
+    const accessToken = '' // getAccessToken(store.getState().auth.credentials)
     // console.log({ http: store.getState().auth.credentials })
     // accessToken && console.log('accessToken-->', accessToken)
     if (accessToken) {
@@ -67,16 +67,16 @@ http.interceptors.response.use(
       if (!isAlreadyFetchingAccessToken) {
         try {
           isAlreadyFetchingAccessToken = true
-          const data = await refreshAccessToken()
-          if (data.access_token) {
-            isAlreadyFetchingAccessToken = false
-            onAccessTokenFetched(data.access_token)
-          }
+          // const data = await refreshAccessToken()
+          // if (data.access_token) {
+          //   isAlreadyFetchingAccessToken = false
+          //   onAccessTokenFetched(data.access_token)
+          // }
         } catch (err) {
-          resetStateAndDisconnect()
+          // resetStateAndDisconnect()
           return Promise.reject(err)
         }
-      } else resetStateAndDisconnect()
+      } // else resetStateAndDisconnect()
 
       const retryOriginalRequest = new Promise((resolve) => {
         addSubscriber(async (access_token) => {

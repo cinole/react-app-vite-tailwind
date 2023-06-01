@@ -6,20 +6,24 @@ import {
   useCallback,
   useContext
 } from 'react'
-import { useLocation } from 'react-router-dom'
+import useMobileDetect from 'use-mobile-detect-hook'
+// import { useLocation } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import usePromptNetwork from '@/hooks/useNetworkPrompt'
+import web3Modal from '@/util/web3Modal'
 import config from './../config'
 // import { login } from '@/store/actions/auth'
 // import { updateConnectInfo } from '@/store/actions/connect'
-import { handleChangeAccount } from '@/util/auth'
+// import { handleChangeAccount } from '@/util/auth'
 
 const Web3Context = createContext()
 
 export const Web3ContextProvider = ({ children }) => {
-  const { pathname } = useLocation()
+  // const { pathname } = useLocation()
+  const detectMobile = useMobileDetect()
   const [currentAccount, setCurrentAccount] = useState(null)
+  const [provider, setProvider] = useState(null)
   const [loading, setLoading] = useState(false)
   const { checkNetwork: isOnRightNetwork, connectToNetwork } = usePromptNetwork()
 
@@ -35,15 +39,7 @@ export const Web3ContextProvider = ({ children }) => {
         // window.location.reload()
       })
       window.ethereum.on('accountsChanged', () => {
-        if (location?.pathname.includes('mint')) window.location.reload()
-        // dispatch(login({ isAuthenticated: null }))
-        // dispatch(
-        //   updateConnectInfo({
-        //     address: window.ethereum?.selectedAddress,
-        //     provider: window.ethereum,
-        //   })
-        // )
-        if (location?.pathname.includes('staking')) handleChangeAccount(window.ethereum?.selectedAddress, window.ethereum)
+        setCurrentAccount(window.ethereum?.selectedAddress) 
       })
 
       try {
@@ -78,17 +74,45 @@ export const Web3ContextProvider = ({ children }) => {
 
   // run when current account changes
   useEffect(() => {
-    if (['/mint', '/staking', '/reservation'].includes(pathname) && currentAccount) checkNetwork()
+    // if (['/mint', '/staking', '/reservation'].includes(pathname) && currentAccount) 
+    checkNetwork()
   }, [currentAccount])
 
   // MetaMask popup to connect wallet
-  const connectWallet = useCallback(async () => {
+  const connectWallet = useCallback(async (connectorId) => {
     if (!window.ethereum) {
       toast('You need MetaMask to connect your wallet.', { type: 'error' })
       return
     }
 
     setLoading(() => true)
+    if (!checkNetwork()) await connectToNetwork()
+
+    // #region metamask mobile
+    if (connectorId === 'injected') {
+      const userAgent = window.navigator.userAgent.toLowerCase()
+      const safari = /safari/.test(userAgent)
+      const ios = /iphone|ipod|ipad/.test(userAgent)
+      const metamaskUrl = `https://metamask.app.link/dapp/${window.location.host}/mint`
+      if (ios) {
+        if (safari) {
+          // browser
+          window.open(metamaskUrl, '_self')
+        }
+      } else if (detectMobile.isMobile()) {
+        if (!userAgent.includes('wv')) {
+          window.open(metamaskUrl, '_self')
+        }
+      }
+    }
+    // #endregion
+
+    if (window.ethereum && window.ethereum.isSafePal) {
+      return window.ethereum
+    }
+
+    const _provider = await web3Modal.connectTo(connectorId)
+    setProvider(_provider)
 
     try {
       const accounts = await window.ethereum.request({
@@ -114,10 +138,11 @@ export const Web3ContextProvider = ({ children }) => {
       checkNetwork,
       currentAccount,
       connectWallet,
+      provider,
       loading,
       setLoading
     }),
-    [checkNetwork, currentAccount, connectWallet, loading, setLoading]
+    [checkNetwork, currentAccount, connectWallet, loading, setLoading, provider]
   )
 
   return <Web3Context.Provider value={value}>{children}</Web3Context.Provider>
