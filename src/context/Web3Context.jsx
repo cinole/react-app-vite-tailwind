@@ -12,7 +12,7 @@ import { toast } from 'react-toastify'
 
 import usePromptNetwork from '@/hooks/useNetworkPrompt'
 import web3Modal from '@/util/web3Modal'
-import config from './../config'
+import config from '@/config'
 // import { login } from '@/store/actions/auth'
 // import { updateConnectInfo } from '@/store/actions/connect'
 // import { handleChangeAccount } from '@/util/auth'

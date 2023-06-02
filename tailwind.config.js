@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
-import addDynamicIconSelectors from '@iconify/tailwind'
+import { addDynamicIconSelectors } from '@iconify/tailwind'
 
 export default {
     content: [
-      "./index.html",
+      // "./index.html",
       "./src/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {

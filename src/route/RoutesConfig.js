@@ -1,4 +1,4 @@
-import * as view from '../view'
+import * as view from '@/view'
 import { createBrowserRouter } from 'react-router-dom'
 
 export const Routes = createBrowserRouter([
