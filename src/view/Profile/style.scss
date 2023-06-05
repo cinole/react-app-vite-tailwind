@@ -1,0 +1,162 @@
+.profile {
+  max-width: 1920px;
+  height: calc(100vh - 74px);
+  min-height: pxToRem(682);
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+
+  .history {
+    background: linear-gradient(
+      180deg,
+      rgba(10, 10, 10, 0.7) 0%,
+      rgba(10, 10, 10, 0.28) 100%
+    );
+
+    table {
+      td {
+        padding: 1rem;
+        &--icon {
+          width: 16px;
+          height: 16px;
+          background: $red;
+          border-radius: 50%;
+          svg {
+            line-height: 14px;
+          }
+          &.inc {
+            background: $green;
+          }
+        }
+      }
+      tr {
+        position: relative;
+        &::after {
+          content: '';
+          position: absolute;
+          left: 1rem;
+          bottom: 0;
+          width: calc(100% - 2rem);
+          height: 1px;
+          background: $border;
+        }
+        td:last-child,
+        th:last-child {
+          text-align: right;
+        }
+      }
+    }
+    &__header {
+      &--filter {
+        input,
+        input::placeholder,
+        button {
+          @extend .fs-12;
+        }
+        input {
+          min-width: 160px;
+          letter-spacing: 1px;
+        }
+        button {
+          color: $orange;
+          svg{
+            font-size: 18px;
+          }
+        }
+      }
+    }
+    &__tx {
+      &--item {
+        color: rgba(255, 255, 255, 0.7);
+        .wp-icon {
+          width: 16px;
+          height: 16px;
+          background: $red;
+          border-radius: 50%;
+          &.inc {
+            background: $green;
+          }
+        }
+      }
+    }
+  }
+  .detail {
+    width: pxToRem(318);
+    &__balance {
+      button {
+        background: rgba(247, 147, 26, 0.3);
+      }
+      .text-orange {
+        font-weight: 500;
+      }
+      .text-orange-opacity {
+        color: rgba(247, 147, 26, 0.65);
+      }
+    }
+    &__oder {
+      .bar {
+        width: 100%;
+        height: pxToRem(23);
+        // background: rgba(0, 226, 131, 0.1);
+        &-inside {
+          height: inherit;
+          background: rgba(244, 60, 60, 0.1);
+        }
+        &-left {
+          height: inherit;
+          background: rgba(0, 226, 131, 0.1);
+        }
+      }
+      .dot {
+        &-red {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          border: 2px solid $red;
+        }
+        &-green {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          border: 2px solid $green;
+        }
+      }
+    }
+    &__stat {
+      .wp-chart {
+        background: rgba(10, 10, 10, 0.2);
+        border-radius: 1px;
+        .apexcharts-legend {
+          text-align: right;
+          .apexcharts-legend-series {
+            direction: rtl;
+            .apexcharts-legend-marker {
+              vertical-align: middle;
+              margin-left: 3px;
+            }
+          }
+        }
+      }
+      .inside-donut {
+        position: absolute;
+        left: 23%;
+        top: 50%;
+        transform: translate(-46px, -50%);
+        width: 50%;
+        height: fit-content;
+        & > div:first-child {
+          max-width: pxToRem(80);
+        }
+      }
+    }
+    button.btn-collapse {
+      svg {
+        transition: all 0.16s linear;
+        transform: rotate(180deg);
+      }
+      &.collapsed svg {
+        transform: rotate(0deg);
+      }
+    }
+  }
+}

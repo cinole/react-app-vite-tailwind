@@ -1,0 +1,144 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $primaryFont;
+  // *:not(.slick-slider, .slick-list, .slick-track) {
+  //   transition: all 0.14s cubic-bezier(0.25, 0.25, 0.25, 0.25);
+  // }
+}
+
+*::-webkit-scrollbar-track {
+  // display: none;
+  background-color: #000;
+}
+*::-webkit-scrollbar {
+  // display: none;
+  width: 4px;
+  height: 4px;
+  background-color: #8a8d9b;
+}
+*::-webkit-scrollbar-thumb {
+  // display: none;
+  background-color: $orange;
+  border-radius: 4px;
+}
+
+::-webkit-input-placeholder {
+  /* Edge */
+  color: #c9cbd1;
+  font-size: 14px;
+  @include typo(14px, 400, 20px);
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #c9cbd1;
+  font-size: 14px;
+  @include typo(14px, 400, 20px);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type='number'] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+::placeholder {
+  color: #c9cbd1;
+  font-size: 14px;
+  @include typo(14px, 400, 20px);
+}
+
+button,
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+input {
+  border-radius: 0;
+  outline: none;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+pre {
+  font-family: 'Source Sans Pro', sans-serif;
+  line-height: 24px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+// TextField
+.MuiTextField-root {
+  input{
+    padding: .25rem 1rem;
+  }
+  .Mui-focused fieldset, fieldset {
+    border-radius: 0;
+    border-color: $border !important;
+    border-width: 0 0 1px 0 !important;
+  }
+  .MuiInputBase-root{
+    padding-right: 0;
+    .MuiInputBase-input{
+      padding-left: 0;
+    }
+  }
+}
+
+// Tooltip
+.MuiTooltip-popper {
+  transition: all 0.16s 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  > div {
+    transition: all 0.4s 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background: $bgMain;
+  }
+  .arrow {
+    background: #10191c71;
+    color: #10191c71;
+  }
+}
+
+.MuiBackdrop-root .MuiModal-backdrop {
+  background: rgba(16, 25, 28, 0.5);
+  border: 1px solid rgba(255, 215, 137, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+// Popover
+.MuiPopover-root {
+  .MuiPopover-paper {
+    overflow: visible;
+    background: unset !important;
+    background-image: unset !important;
+    box-shadow: unset;
+    // margin-left: 1.5rem;
+  }
+}
+
+.MuiPopper-root {
+  transform-origin: 0;
+}

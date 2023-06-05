@@ -1,0 +1,19 @@
+.not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  &__code {
+    font-size: 26px;
+    text-align: center;
+    padding: 0 15px 0 15px;
+    border-right: solid 2px #C9CBD1;
+  }
+
+  &__message {
+    font-size: 18px;
+    text-align: center;
+    padding: 10px;
+  }
+}

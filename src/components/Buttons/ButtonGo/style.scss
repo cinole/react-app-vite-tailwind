@@ -1,0 +1,36 @@
+.btn-go {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: fit-content;
+    padding: 8px 16px;
+    border-radius: 40px;
+    background: #323135;
+    color: #C9CBD1;
+
+    img {
+        padding: unset !important;
+    }
+
+    &__text {
+        text-transform: uppercase;
+        margin-right: 16px;
+        letter-spacing: 2px;
+    }
+}
+
+.mobile-btn__go {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    background: #323135;
+    color: #C9CBD1;
+
+    img {
+        padding: unset !important;
+    }
+}

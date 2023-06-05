@@ -1,0 +1,32 @@
+// import global
+@import "./_variables.scss";
+@import "./_mixin.scss";
+@import "./_animation.scss";
+@import "./_typography.scss";
+@import "./_reset.scss";
+@import "./_helper.scss";
+
+// load all layout styles
+// @import "../layout/*.scss";
+// @import "../layout/**/*.scss";
+@import "@/layout/Header/style.scss";
+@import "@/layout/ModalSelectConnect/style.scss";
+
+// load all component styles
+// @import "../components/**/*.scss";
+@import "@/components/Checkbox/CheckboxGroup/style.scss";
+@import "@/components/Dropdown/style.scss";
+@import "@/components/LoadingHome/style.scss";
+@import "@/components/LoadingLayer/style.scss";
+@import "@/components/LoadingSection/style.scss";
+@import "@/components/ModalConfirm/style.scss";
+@import "@/components/NoData/style.scss";
+@import "@/components/Snackbar/style.scss";
+
+
+// load all module styles
+// @import "../view/**/*.scss";
+@import "@/view/Home/style.scss";
+@import "@/view/Profile/style.scss";
+@import "@/view/NotFound/style.scss";
+

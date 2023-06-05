@@ -1,0 +1,16 @@
+.btn-close {
+    display: flex;
+    align-items: center;
+    // width: 148px;
+    
+    &__text {
+        text-transform: uppercase;
+        color: #C9CBD1;
+        margin-left: 12px;
+    }
+}
+
+.mobile-btn__close {
+    width: 24px;
+    height: 24px;
+}
