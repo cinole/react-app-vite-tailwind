@@ -6,8 +6,8 @@ import { useCommonContext } from '@/context/CommonContext'
 import Fade from '@mui/material/Fade'
 import Modal from '@mui/material/Modal'
 import Backdrop from '@mui/material/Backdrop'
-import Metamask from '@/static/images/metamask.png'
-import Walletconnect from '@/static/images/walletconnect.png'
+import Metamask from '@/assets/images/metamask.png'
+import Walletconnect from '@/assets/images/walletconnect.png'
 
 const Index = () => {
   const { loading, setLoading, connectWallet } = useWeb3Context()
@@ -45,16 +45,6 @@ const Index = () => {
       <Fade in={openModalConnect}>
         <SCModalConnect className="modal-select-connect relative">
           <div className="modal-body-bg" />
-          {/* <img
-            className="modal-title-bg-logo"
-            src="/static/images/bg-logo.png"
-            alt="Logo BioWebsite"
-          />
-          <img
-            className="modal-title-logo-full"
-            src="/static/images/logo-full.png"
-            alt="Logo BioWebsite"
-          /> */}
           <div className="modal-content px-8">
             <div
               onClick={() => setOpenModalConnect(false)}
@@ -62,14 +52,14 @@ const Index = () => {
             >
               {/* <img src={IconClose} alt="close" /> */}
             </div>
-            <div className="modal-content__btn-group flex col">
+            <div className="modal-content__btn-group flex flex-col">
               {/* {!detectMobile.isMobile() && ( */}
               <button
                 disabled={loading}
                 onClick={() => handleConnect()}
                 className="px-6 py-2 mb-4"
               >
-                <img className="mr-4" src={Metamask} alt="metamask" />
+                <img className="mr-4 inline" src={Metamask} alt="metamask" />
                 Login with Metamask
               </button>
               {/* )} */}
@@ -78,7 +68,7 @@ const Index = () => {
                 onClick={() => handleConnect('walletconnect')}
                 className="px-6 py-2"
               >
-                <img className="mr-4" src={Walletconnect} alt="metamask" />
+                <img className="mr-4 inline" src={Walletconnect} alt="metamask" />
                 Login Walletconnect
               </button>
             </div>

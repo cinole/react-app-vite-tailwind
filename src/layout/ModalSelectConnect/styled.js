@@ -25,7 +25,7 @@ export const SCModalConnect = styled('div', { label: 'Connect' })(({ theme }) =>
     }
   },
   '.btn-close': {
-    filter: theme.palette.mode === 'dark' ? 'invert(1)' : 'unset',
+    filter: 'invert(1)',
     cursor: 'pointer',
     zIndex: 2
   }
