@@ -1,21 +1,22 @@
 import IconArrowUpward from '@/assets/icons/ArrowUpward.svg'
-// import Dropdown from '@/components/Dropdown'
+import Dropdown from '@/components/Dropdown'
+import LineChart from '@/assets/images/home/linechart.png'
 
 const index = () => {
   return (
     <div className="home__left--top">
       <div className="wp-chart">
         <div className="fs-10 text-sub capitalize">Bitcoin/ US Dollar</div>
-        {/* <Dropdown
+        <Dropdown
           options={['BTC/ USD', 'USDT/ USD']}
-          className="dropdown-coin fs-20 fw-semibold"
-        /> */}
-        <img src="/static/images/home/linechart.png" alt="" />
+          className="dropdown-coin fs-20 font-semibold"
+        />
+        <img src={LineChart} alt="" />
       </div>
       <div className="wp-report mt-6">
-        <div className="fs-10 text-sub">
+        <div className="flex gap-2 fs-10 text-sub">
           Daily change{' '}
-          <span className="text-green">
+          <span className="inline-flex text-green">
             <IconArrowUpward className="fs-10" /> 0.32%
           </span>
         </div>

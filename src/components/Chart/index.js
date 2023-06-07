@@ -1,4 +1,3 @@
-import React from 'react'
 import ReactApexChart from 'react-apexcharts'
 
 const ApexChart = ({ className, options, series, ...rest }) => {
@@ -254,10 +253,10 @@ const ApexChart = ({ className, options, series, ...rest }) => {
         type: 'candlestick',
         height: 350
       },
-      title: {
-        text: 'CandleStick Chart',
-        align: 'left'
-      },
+      // title: {
+      //   text: 'CandleStick Chart',
+      //   align: 'left'
+      // },
       xaxis: {
         type: 'datetime'
       },

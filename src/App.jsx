@@ -1,6 +1,9 @@
 import AppRoute from '@/route'
 import ContextProdiver from '@/context'
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
+import { LocalizationProvider } from '@mui/x-date-pickers'
 
+import "tw-elements";
 import 'react-toastify/dist/ReactToastify.css'
 import { injectStyle } from 'react-toastify/dist/inject-style'
 if (typeof window !== 'undefined') {
@@ -10,7 +13,9 @@ if (typeof window !== 'undefined') {
 function App() {
   return (
     <ContextProdiver>
-      <AppRoute />
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <AppRoute />
+      </LocalizationProvider>
     </ContextProdiver>
   )
 }

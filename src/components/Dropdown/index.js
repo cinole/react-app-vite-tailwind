@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { useState, useRef } from 'react'
 import {
   Box,
   Grow,
@@ -8,21 +8,15 @@ import {
   MenuList,
   ButtonGroup,
   Button,
-  ClickAwayListener
+  ClickAwayListener,
 } from '@mui/material'
 // import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
 
-const optionsDefault = [
-  'Create a merge commit',
-  'Squash and merge',
-  'Rebase and merge'
-]
-
-const index = ({ options, arrow, ...rest }) => {
-  const [open, setOpen] = React.useState(false)
-  const anchorRef = React.useRef(null)
-  const [selectedIndex, setSelectedIndex] = React.useState(1)
+const Index = ({ options, arrow, ...rest }) => {
+  const [open, setOpen] = useState(false)
+  const anchorRef = useRef(null)
+  const [selectedIndex, setSelectedIndex] = useState(1)
 
   const handleClick = () => {
     console.info(`You clicked ${options[selectedIndex]}`)
@@ -68,7 +62,7 @@ const index = ({ options, arrow, ...rest }) => {
       </ButtonGroup>
       <Popper
         sx={{
-          zIndex: 1
+          zIndex: 1,
         }}
         open={open}
         anchorEl={anchorRef.current}
@@ -81,7 +75,7 @@ const index = ({ options, arrow, ...rest }) => {
             {...TransitionProps}
             style={{
               transformOrigin:
-                placement === 'bottom' ? 'center top' : 'center bottom'
+                placement === 'bottom' ? 'center top' : 'center bottom',
             }}
           >
             <Paper>
@@ -108,4 +102,4 @@ const index = ({ options, arrow, ...rest }) => {
   )
 }
 
-export default index
+export default Index

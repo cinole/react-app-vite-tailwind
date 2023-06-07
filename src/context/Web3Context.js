@@ -76,7 +76,7 @@ const Web3ContextProvider = ({ children }) => {
   // run when current account changes
   useEffect(() => {
     // if (['/mint', '/staking', '/reservation'].includes(pathname) && currentAccount) 
-    checkNetwork()
+    // checkNetwork()
   }, [currentAccount])
 
   // MetaMask popup to connect wallet
@@ -87,7 +87,7 @@ const Web3ContextProvider = ({ children }) => {
     }
 
     setLoading(() => true)
-    if (!checkNetwork()) await connectToNetwork()
+    // if (!checkNetwork()) await connectToNetwork()
 
     // #region metamask mobile
     if (connectorId === 'injected') {
@@ -141,9 +141,10 @@ const Web3ContextProvider = ({ children }) => {
       connectWallet,
       provider,
       loading,
-      setLoading
+      setLoading,
+      setCurrentAccount
     }),
-    [checkNetwork, currentAccount, connectWallet, loading, setLoading, provider]
+    [checkNetwork, currentAccount, connectWallet, loading, setLoading, provider, setCurrentAccount]
   )
 
   return <Web3Context.Provider value={value}>{children}</Web3Context.Provider>

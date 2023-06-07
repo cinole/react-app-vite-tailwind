@@ -14,8 +14,10 @@
     min-width: unset !important;
   }
   .MuiPopper-root {
-    .MuiPaper-rounded{
-        overflow: hidden;
+    .MuiPaper-rounded {
+      background: #121212;
+      overflow: hidden;
+      color: $primary;
     }
     ul {
       padding: 0;

@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
 // import Slider from 'react-slick'
-// import ChartMain from './components/ChartMain'
+import ChartMain from './components/ChartMain'
 import Report from './components/Report'
 import Balance from './components/Balance'
 import Bet from './components/Bet'
@@ -9,7 +8,7 @@ import Oder from './components/Oder'
 
 const index = () => {
   return (
-    <div className="home flex gap-2 px-4 px-6">
+    <div className="home flex gap-2 py-4 px-6">
       {/* <div className="marquee flex items-center gap-6">
         {new Array(3).fill(0).map((_, idx) => (
           <>
@@ -40,12 +39,12 @@ const index = () => {
           </>
         ))}
       </div> */}
-      <div className="home__left flex col justify-between">
+      <div className="home__left flex flex-col justify-between">
         <Report />
         <Balance />
       </div>
-      <div className="home__center flex-fill flex col justify-between">
-        {/* <ChartMain /> */}
+      <div className="home__center flex-auto flex flex-col justify-between">
+        <ChartMain />
         <Bet />
       </div>
       <div className="home__right">

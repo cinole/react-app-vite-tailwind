@@ -24,7 +24,7 @@ const Index = () => {
   const navigate = useNavigate()
   const headerRef = useRef(null)
   // const { pathname } = useLocation()
-  const { currentAccount } = useWeb3Context()
+  const { currentAccount, setCurrentAccount } = useWeb3Context()
   const { setOpenModalConnect } = useCommonContext()
 
 
@@ -127,7 +127,7 @@ const Index = () => {
                   </div>
                   <div
                     className="btn-action fs-12 text-sub pointer"
-                    // onClick={() => resetState()}
+                    onClick={() => setCurrentAccount('')}
                   >
                     Log Out
                     <LogoutIcon className="ml-1" />

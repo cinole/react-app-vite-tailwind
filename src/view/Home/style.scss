@@ -36,6 +36,10 @@
       img {
         width: pxToRem(207);
       }
+      svg {
+        width: 0.75rem;
+        height: 0.75rem;
+      }
     }
     &--bottom {
       height: pxToRem(321);
@@ -45,8 +49,13 @@
         rgba(10, 10, 10, 0.28) 100%
       );
       border-radius: 3px;
+
+      .coin-icon {
+        width: unset !important;
+        height: unset !important;
+      }
       .title {
-        padding: pxToRem(10) 0;
+        padding: pxToRem(10) 1rem;
       }
       button {
         background: rgba(247, 147, 26, 0.3);
@@ -70,6 +79,8 @@
           border-radius: 2px 2px 0 0;
           bottom: 0;
           left: 0;
+          padding: 0;
+          @extend .trans-cub;
 
           @for $i from 0 through 5 {
             &.run-bar-#{$i} {
@@ -99,11 +110,11 @@
         }
         &__left {
           &--amount {
-            background: #0A0A0A;
+            background: #0a0a0a;
             button {
               background: none !important;
             }
-            .text-coin{
+            .text-coin {
               color: rgba(252, 253, 254, 0.5);
               background: $bgMain;
             }
@@ -111,11 +122,13 @@
           &--list > div {
             background-color: $bgMain;
           }
-          button {
-            background: $bgGreen;
-            padding: 13px 0;
-            &.btn-sell {
-              background: $bgRed;
+          .group-btn {
+            button {
+              background: $bgGreen;
+              padding: 13px 0;
+              &.btn-sell {
+                background: $bgRed;
+              }
             }
           }
         }

@@ -1,12 +1,6 @@
-import React, { useState, useEffect } from 'react'
-
 import Detail from './components/Detail'
 import TxItem from './components/TxItem'
-import IconCalendar from '@/assets/icons/Calendar.svg'
-// import EventOutlinedIcon from '@mui/icons-material/EventOutlined'
-// import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined'
-// import EventAvailableOutlinedIcon from '@mui/icons-material/EventAvailableOutlined'
-// import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker'
+import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined'
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker'
 
 const listTx = [
@@ -74,22 +68,22 @@ const listTx = [
 const index = () => {
   return (
     <div className="profile flex gap-2">
-      <div className="history flex-fill my-4 ms-6 mr-4 py-1">
-        <div className="history__header flex items-center justify-between px-4 px-4">
+      <div className="history flex-auto my-4 ms-6 mr-4 py-1">
+        <div className="history__header flex items-center justify-between p-4">
           <div>Transaction history</div>
           <div className="history__header--filter">
             {/* <DateRangePicker
               localeText={{ start: 'start time', end: 'end time' }}
             /> */}
             <DateTimePicker
-              className="fs-12"
+              className="fs-12 text-main"
               ampm={false}
               // slotProps={{
               //   OpenPickerIcon: {
               //     fontSize: 12
               //   }
               // }}
-              slots={{ openPickerIcon: IconCalendar }}
+              slots={{ openPickerIcon: CalendarTodayOutlinedIcon }}
               format="MM/DD/YYYY - hh:mm"
             />
           </div>

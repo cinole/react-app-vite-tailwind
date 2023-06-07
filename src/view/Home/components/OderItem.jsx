@@ -15,14 +15,14 @@ const Index = ({ item }) => {
           }`}
         >
           {item.action === 'buy' ? (
-            <IconArrowUpward className="align-text-top fs-12" />
+            <IconArrowUpward className="align-text-top inline fs-12" />
           ) : (
-            <IconArrowDownward className="align-text-top fs-12" />
+            <IconArrowDownward className="align-text-top inline fs-12" />
           )}
         </span>
         <div className="uppercase fs-10">
           <span
-            className={`fs-12 fw-semibold text-${
+            className={`fs-12 font-semibold text-${
               item.action === 'buy' ? 'green' : 'red'
             }`}
           >
@@ -33,7 +33,7 @@ const Index = ({ item }) => {
       </div>
       <div className="uppercase fs-10 text-sub text-right">
         <span
-          className={`fs-12 fw-semibold text-${
+          className={`fs-12 font-semibold text-${
             item.profitStatus ? 'green' : 'red'
           }`}
         >

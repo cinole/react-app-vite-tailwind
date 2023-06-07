@@ -48,6 +48,10 @@ body {
     overflow-x: hidden;
   }
 }
+svg:not(.MuiCircularProgress-svg, .apexcharts-svg) {
+  width: 1em !important;
+  height: 1em !important;
+}
 // :root {
 //   scroll-behavior: smooth;
 //   --primary-color: #302ae6;
@@ -91,6 +95,9 @@ body {
 
 .hide {
   display: none;
+}
+.shadow-none {
+  box-shadow: unset !important;
 }
 
 .trans-cub {
@@ -183,8 +190,14 @@ button {
   &:not(:disabled):hover {
     transform: translateY(-2px);
   }
+  &:focus{
+    outline: none;
+  }
 }
 
 .flex-equal {
   flex: 1 1 0 !important;
 }
+
+
+

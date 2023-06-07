@@ -136,13 +136,13 @@ const index = () => {
         }`}
       >
         <div
-          className={`flex-fill pointer fs-12 ${!!(tab === 0) && 'active'}`}
+          className={`flex-auto pointer fs-12 ${!!(tab === 0) && 'active'}`}
           onClick={() => setTab(0)}
         >
           Open
         </div>
         <div
-          className={`flex-fill pointer fs-12 ${!!(tab === 1) && 'active'}`}
+          className={`flex-auto pointer fs-12 ${!!(tab === 1) && 'active'}`}
           onClick={() => setTab(1)}
         >
           Close

@@ -91,19 +91,46 @@ a {
   text-decoration: none;
 }
 
+.MuiPickersPopper-root {
+  .MuiPickersPopper-paper {
+    background: $bgMain;
+    * {
+      color: $primary;
+    }
+    .MuiButtonBase-root.Mui-selected {
+      background-color: $bgOrange;
+      &:hover {
+        background-color: $bgOrange;
+      }
+      &.MuiMenuItem-gutters {
+        background-color: transparent;
+        color: $orange;
+      }
+    }
+    .MuiPickersDay-today {
+      border: 1px solid $secondary;
+    }
+  }
+}
+
 // TextField
 .MuiTextField-root {
-  input{
-    padding: .25rem 1rem;
+  input {
+    padding: 0.25rem 1rem;
   }
-  .Mui-focused fieldset, fieldset {
+  .Mui-focused fieldset,
+  fieldset {
     border-radius: 0;
     border-color: $border !important;
     border-width: 0 0 1px 0 !important;
   }
-  .MuiInputBase-root{
+  .MuiInputBase-root {
     padding-right: 0;
-    .MuiInputBase-input{
+    color: $primary;
+    &::placeholder {
+      color: $secondary;
+    }
+    .MuiInputBase-input {
       padding-left: 0;
     }
   }
@@ -122,6 +149,7 @@ a {
   }
 }
 
+// Modal
 .MuiBackdrop-root .MuiModal-backdrop {
   background: rgba(16, 25, 28, 0.5);
   border: 1px solid rgba(255, 215, 137, 0.3);
@@ -138,7 +166,6 @@ a {
     // margin-left: 1.5rem;
   }
 }
-
 .MuiPopper-root {
   transform-origin: 0;
 }

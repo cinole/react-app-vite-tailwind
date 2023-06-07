@@ -16,17 +16,17 @@ const index = ({ item, className }) => {
           }`}
         >
           {item.oder.toLowerCase() === 'buy' ? (
-            <IconArrowUpward className="fs-12" />
+            <IconArrowUpward className="align-text-middle inline fs-12" />
           ) : (
-            <IconArrowDownward className="fs-12" />
+            <IconArrowDownward className="align-text-middle inline fs-12" />
           )}
         </span>
         {item.oder}
       </td>
       <td>{item.startPrice}</td>
       <td>{item.endPrice}</td>
-      <td className="fw-semibold text-white">${item.amount}</td>
-      <td className={`fw-semibold text-${item.profit >= 0 ? 'green' : 'red'}`}>
+      <td className="font-semibold text-white">${item.amount}</td>
+      <td className={`font-semibold text-${item.profit >= 0 ? 'green' : 'red'}`}>
         {item.profit >= 0 ? '+' : '-'}${Math.abs(item.profit)}
       </td>
     </tr>

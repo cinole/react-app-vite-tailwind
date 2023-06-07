@@ -5,18 +5,21 @@ import svgr from 'vite-plugin-svgr'
 import path from 'path'
 import fs from 'fs/promises'
 
+import nodePolyfills from 'vite-plugin-node-stdlib-browser'
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   // Load app-level env vars to node-level env vars.
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) }
+
   return {
-    plugins: [react(), svgr({exportAsDefault: true})],
+    plugins: [react(), svgr({ exportAsDefault: true }), nodePolyfills()],
     css: {
       preprocessorOptions: {
         css: {
-          additionalData: `@import "@/assets/fonts/style.css";`
-        }
-      }
+          additionalData: `@import "@/assets/fonts/style.css";`,
+        },
+      },
     },
     esbuild: {
       loader: 'jsx',
@@ -39,6 +42,8 @@ export default defineConfig(({ mode }) => {
           },
         ],
       },
+      exclude: ['@ethersproject/hash', 'wrtc'],
+      include: ['js-sha3', '@ethersproject/bignumber'],
     },
     // build: {
     //   rollupOptions: {
