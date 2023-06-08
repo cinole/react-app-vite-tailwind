@@ -3,13 +3,14 @@ import { useNavigate, Link } from 'react-router-dom'
 import { AppBar, Slide, Toolbar } from '@mui/material'
 
 
-import { useCopyToClipboard } from '@/hooks/useCopyToClipboard'
+// import { useCopyToClipboard } from '@/hooks/useCopyToClipboard'
 import { useCommonContext } from '@/context/CommonContext'
 import { useWeb3Context } from '@/context/Web3Context'
 import { threeDots } from '@/util/formatData'
 // import { useLocation } from 'react-router-dom'
 // import { resetState } from '@/util/auth'
 
+import CopyToClipboard from '@/components/CopyToClipboard'
 import useScrollTrigger from '@mui/material/useScrollTrigger'
 import LoginIcon from '@mui/icons-material/Login'
 import LogoutIcon from '@mui/icons-material/Logout'
@@ -28,7 +29,7 @@ const Index = () => {
   const { setOpenModalConnect } = useCommonContext()
 
 
-  const [copiedText, copy] = useCopyToClipboard()
+  // const [copiedText, copy] = useCopyToClipboard()
 
   const handleClickConnect = () => {
     if (!currentAccount) setOpenModalConnect(true)
@@ -101,7 +102,7 @@ const Index = () => {
                     <div className="ml-2">
                       <Link to="/profile">
                       <p
-                        className="name fs-14 fw-bold mb-1 pointer"
+                        className="name fs-14 font-bold mb-1 pointer"
                         onClick={() => navigate('/profile')}
                       >
                         Username001
@@ -110,18 +111,9 @@ const Index = () => {
                       <p
                         className="relative fs-12 text-sub mb-0 pointer"
                         style={{ lineHeight: '14px' }}
-                        onClick={() => copy(currentAccount)}
                       >
                         {threeDots(currentAccount)}
-                        <ContentCopyIcon
-                          sx={{ fontSize: '13px' }}
-                          className="ml-1"
-                        />
-                        {copiedText && (
-                          <span className="wp-tooltip px-2 py-1 mt-2 text-orange">
-                            Copied
-                          </span>
-                        )}
+                        <CopyToClipboard text={currentAccount}/>
                       </p>
                     </div>
                   </div>

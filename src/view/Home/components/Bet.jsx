@@ -28,13 +28,13 @@ const Index = () => {
               -
             </button>
             {/* <input
-                  className="flex-auto w-3/12 fs-18 fw-bold border-0 bg-transparent text-main text-center"
+                  className="flex-auto w-3/12 fs-18 font-bold border-0 bg-transparent text-main text-center"
                   type="number"
                   placeholder="$1000"
                   value={amount}
                   onChange={onChangeAmount}
                 /> */}
-            <div className="flex-auto w-3/12 fs-18 fw-bold border-0 bg-transparent text-main text-center">
+            <div className="flex-auto w-3/12 fs-18 font-bold border-0 bg-transparent text-main text-center">
               ${amount}
             </div>
             <button
@@ -77,10 +77,10 @@ const Index = () => {
             </div>
           </div>
           <div className="group-btn flex gap-2 mt-6">
-            <button className="btn-sell flex-auto fs-14 fw-bold rounded-md uppercase text-main">
+            <button className="btn-sell flex-auto fs-14 font-bold rounded-md uppercase text-main">
               <IconArrowDownward className="fs-18 align-top inline" /> sell
             </button>
-            <button className="flex-auto fs-14 fw-bold rounded-md uppercase text-main">
+            <button className="flex-auto fs-14 font-bold rounded-md uppercase text-main">
               <IconArrowUpward className="fs-18 align-top inline" /> buy
             </button>
           </div>
@@ -98,11 +98,11 @@ const Index = () => {
           <div className="detail__right--block flex justify-between gap-2 mt-4">
             <div className="detail__right--block-item flex-equal rounded-md p-2">
               <p className="fs-10 mb-2">Profit rate</p>
-              <p className="fs-20 fw-bold mb-4 text-cyan">95%</p>
+              <p className="fs-20 font-bold mb-4 text-cyan">95%</p>
             </div>
             <div className="detail__right--block-item flex-equal rounded-md p-2">
               <p className="fs-10 mb-2">Predicted profit</p>
-              <p className="fs-20 fw-bold mb-4 text-lightgreen">+1950 BTC</p>
+              <p className="fs-20 font-bold mb-4 text-lightgreen">+1950 BTC</p>
             </div>
           </div>
           <div className="detail__right--action flex items-center justify-center mt-4">
@@ -112,7 +112,7 @@ const Index = () => {
                 variant="determinate"
                 value={80}
               />
-              <span className="action-text absolute fs-16 fw-bold text-orange">
+              <span className="action-text absolute fs-16 font-bold text-orange">
                 15s
               </span>
             </div>

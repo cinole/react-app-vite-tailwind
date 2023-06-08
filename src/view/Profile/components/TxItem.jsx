@@ -8,7 +8,7 @@ const index = ({ item, className }) => {
       <td>{item.time}</td>
       <td>{item.period}</td>
       <td
-        className={`flex uppercase fw-bold text-${item.oder.toLowerCase() === 'buy' ? 'green' : 'red'}`}
+        className={`flex uppercase font-bold text-${item.oder.toLowerCase() === 'buy' ? 'green' : 'red'}`}
       >
         <span
           className={`wp-icon text-white text-center d-block mr-2 ${

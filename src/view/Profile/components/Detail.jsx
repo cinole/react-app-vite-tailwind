@@ -1,13 +1,15 @@
+import { useState } from 'react'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
-import IconChevronDown from '@/assets/icons/ChevronDown.svg'
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import IconAddCard from '@/assets/icons/AddCard.svg'
+import Collapse from '@mui/material/Collapse'
 import Chart from '@/components/Chart'
-
-import { Collapse, initTE } from "tw-elements";
-initTE({ Collapse });
-// todo: use tw-elements, collapse,
+// todo: font
 
 const Index = ({ className }) => {
+  const [openStat, setOpenStat] = useState(true)
+  const [openOder, setOpenOder] = useState(true)
+
   const options = {
     chart: {
       type: 'donut',
@@ -79,24 +81,15 @@ const Index = ({ className }) => {
       <div className="detail__oder p-4 bd-bottom">
         <div className="capitalize flex justify-between items-center fs-16">
           My oder
-          <button
-            className="btn-collapse bg-transparent"
-            type="button"
-            data-te-collapse-init
-            data-te-ripple-init
-            data-te-ripple-color="dark"
-            data-te-target="#collapseOder"
-            aria-expanded="false"
-            aria-controls="collapseOder"
-          >
-            <IconChevronDown className="fs-4 text-sub" />
+          <button className="btn-collapse bg-transparent" onClick={() => setOpenOder(!openOder)}>
+            {!openOder ? (
+              <KeyboardArrowUpIcon className="fs-4 text-sub" />
+            ) : (
+              <KeyboardArrowDownIcon className="fs-4 text-sub" />
+            )}
           </button>
         </div>
-        <div
-          className="!visible hidden trans-cub"
-          id="collapseOder"
-          data-te-collapse-item
-        >
+        <Collapse in={openOder} timeout="auto" unmountOnExit>
           <div className="bd-bottom pb-4">
             <div className="flex justify-between items-center fs-12 text-sub mt-6 mb-2">
               Net profit: <span className="fs-10 text-white">$200</span>
@@ -123,25 +116,20 @@ const Index = ({ className }) => {
               </div>
             </div>
           </div>
-        </div>
+        </Collapse>
       </div>
       <div className="detail__stat p-4">
         <div className="capitalize flex justify-between items-center fs-16 mb-4">
           Trade Stats
-          <button
-            className="btn-collapse bg-transparent"
-            type="button"
-            data-te-collapse-init
-            data-te-ripple-init
-            data-te-ripple-color="dark"
-            data-te-target="#collapseStat"
-            aria-expanded="false"
-            aria-controls="collapseStat"
-          >
-            <KeyboardArrowDownIcon className="fs-4 text-sub" />
+          <button className="btn-collapse bg-transparent" onClick={() => setOpenStat(!openStat)}>
+            {!openStat ? (
+              <KeyboardArrowUpIcon className="fs-4 text-sub" />
+            ) : (
+              <KeyboardArrowDownIcon className="fs-4 text-sub" />
+            )}
           </button>
         </div>
-        <div className="!visible hidden trans-cub" id="collapseStat" data-te-collapse-item>
+        <Collapse in={openStat} timeout="auto" unmountOnExit>
           <div className="bd-bottom pb-4">
             <div className="relative">
               <Chart
@@ -166,7 +154,7 @@ const Index = ({ className }) => {
             Total transaction
             <span className="fs-10 text-white">$26,996.00 USD</span>
           </div>
-        </div>
+        </Collapse>
       </div>
     </div>
   )
