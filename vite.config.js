@@ -6,7 +6,7 @@ import path from 'path'
 import fs from 'fs/promises'
 
 import nodePolyfills from 'vite-plugin-node-stdlib-browser'
-
+import { esbuildCommonjs } from '@originjs/vite-plugin-commonjs'
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   // Load app-level env vars to node-level env vars.
@@ -40,6 +40,7 @@ export default defineConfig(({ mode }) => {
               }))
             },
           },
+          // esbuildCommonjs(['web3-provider-engine'])
         ],
       },
       exclude: ['@ethersproject/hash', 'wrtc'],
@@ -54,10 +55,14 @@ export default defineConfig(({ mode }) => {
     // },
     build: {
       cssCodeSplit: true,
+      commonjsOptions: {
+        transformMixedEsModules: true,
+      },
     },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),
+        process: 'process',
       },
     },
   }

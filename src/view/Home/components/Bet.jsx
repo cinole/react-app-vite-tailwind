@@ -17,9 +17,9 @@ const Index = () => {
   return (
     <div className="home__center--bottom">
       <div className="title bd-bottom text-center fs-16">Bet</div>
-      <div className="detail flex gap-8 flex-wrap justify-center py-4">
+      <div className="detail flex gap-12 flex-wrap justify-center py-4">
         <div className="detail__left">
-          <div className="detail__left--title fs-10 text-sub mb-4">Amount:</div>
+          <div className="detail__left--title fs-10 text-sub mb-6">Amount:</div>
           <div className="detail__left--amount flex items-center rounded-md overflow-hidden">
             <button
               className="fs-24 font-semibold text-main px-6 py-2"
@@ -47,7 +47,7 @@ const Index = () => {
               USD
             </div>
           </div>
-          <div className="detail__left--list flex gap-2 flex-wrap mt-6">
+          <div className="detail__left--list flex gap-2 flex-wrap mt-4">
             <div className="flex-auto fs-16 font-semibold text-center rounded-md p-2">
               + 5
             </div>
@@ -105,7 +105,7 @@ const Index = () => {
               <p className="fs-20 font-bold mb-4 text-lightgreen">+1950 BTC</p>
             </div>
           </div>
-          <div className="detail__right--action flex items-center justify-center mt-4">
+          <div className="detail__right--action flex items-center justify-center mt-6">
             <div className="relative">
               <CircularProgress
                 className="wp-circle relative"

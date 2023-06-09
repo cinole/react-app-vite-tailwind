@@ -24,13 +24,13 @@ const index = () => {
           <span className="fs-16 text-main">20.2476</span> USD
         </div>
       </div>
-      <div className="wp-report mt-6">
+      <div className="wp-report mt-4">
         <div className="fs-10 text-sub">24h volume</div>
         <div className="fs-10 uppercase text-sub">
           <span className="fs-16 text-main">381.404863.1842</span> BTC
         </div>
       </div>
-      <div className="wp-report mt-6">
+      <div className="wp-report mt-4">
         <div className="fs-10 text-sub">Day’s range</div>
         <div className="fs-10 uppercase text-sub">
           <span className="fs-16 text-main">2678.1842 - 2678.1900</span> BTC

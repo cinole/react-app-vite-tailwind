@@ -1,6 +1,6 @@
 import { Interface } from '@ethersproject/abi'
 import config from './../config'
-const multicallABI = require('./../constants/abi/multicall.json')
+import multicallABI from './../constants/abi/multicall.json'
 const multicallAddress = config.multicall
 
 const multicall = async (web3, calls, options) => {

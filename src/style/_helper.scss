@@ -52,6 +52,10 @@ svg:not(.MuiCircularProgress-svg, .apexcharts-svg) {
   width: 1em !important;
   height: 1em !important;
 }
+.apexcharts-toolbar svg{
+  width: initial !important;
+  height: initial !important;
+}
 // :root {
 //   scroll-behavior: smooth;
 //   --primary-color: #302ae6;

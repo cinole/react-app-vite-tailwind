@@ -5,7 +5,7 @@ const index = () => {
   return (
     <div className="home__left--bottom">
       <div className="title bd-bottom fs-16">My Balance</div>
-      <div className="detail p-3">
+      <div className="detail p-4">
         <div className="pb-4 flex justify-between items-start">
           <div className="flex items-center">
             <BnbIcon className="coin-icon"/>
@@ -14,7 +14,7 @@ const index = () => {
               <br /> $12345.6789
             </div>
           </div>
-          <button className="flex rounded-md fs-10 px-4 py-2 font-semibold text-main">
+          <button className="flex rounded fs-10 px-4 py-2 font-semibold text-main">
             <IconAddCard className="fs-12 mr-1 align-top" /> Deposits
           </button>
         </div>
