@@ -1,4 +1,3 @@
-import React from 'react'
 import Mouse from '@/static/svg/mouse.svg'
 
 const index = props => {

@@ -1,4 +1,3 @@
-import React from 'react'
 const index = ({ text }) => {
   return (
     <div className="wp-warning flex items-center justify-center">

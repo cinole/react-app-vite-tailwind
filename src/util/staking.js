@@ -1,10 +1,6 @@
 import abi from '@/constants/abi/staking.json'
-import api from './api'
-import store from '@/store'
 import { env } from '@/constants/env'
-import { getLocalStorage } from '@/util/helpers'
 import { getWeb3, sendRawTx } from '@/util/web3'
-import { personalSignWithNonce } from '@/util/nftData'
 
 const contract = env.app.contractAddress.staking
 const getContract = () => {

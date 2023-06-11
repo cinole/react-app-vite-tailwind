@@ -1,9 +1,7 @@
 import Web3 from 'web3'
-import moment from 'moment'
 
 import api from './api'
 import store from '@/store'
-import tokens from '@/constants/tokens.js'
 import web3Modal from '@/util/web3Modal'
 import { updateConnectInfo } from '@/store/actions/connect'
 import { setLocalStorage } from '@/util/helpers'
@@ -92,7 +90,7 @@ export const resetApp = async ({ provider: _provider }) => {
   store.dispatch(updateConnectInfo({ address: '', provider: null }))
 }
 
-const _arrToOjbAtr = (data) => {
+export const _arrToOjbAtr = (data) => {
   if (!data || !data.length) return {}
   const obj = data.reduce((obj, cur) => {
     obj[cur.trait_type] = cur.value

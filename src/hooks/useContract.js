@@ -4,9 +4,8 @@ import Web3Context from '../context/Web3Context'
 import { GENESIS_INO_ABI } from '@/constants'
 import config from './../config'
 import multicall from './../util/miltical'
-import Bignumber from 'bignumber.js'
+// import Bignumber from 'bignumber.js'
 import { toast } from 'react-toastify'
-const types = ['success', 'info', 'warning', 'error']
 const stages_id = [1, 2, 3, 4, 5]
 const issue_id = [1, 2, 3]
 
@@ -16,6 +15,7 @@ const useContract = () => {
   const [configStages, setConfigStages] = useState({ 0: null, 1: null, 2: null })
 
   useEffect(() => {
+    console.log(setContract);
     getConfigStage()
   }, [])
 
@@ -218,17 +218,17 @@ const useContract = () => {
     }
   }
 
-  const isJoinable = async (buyer, quantity) => {
-    try {
-      const myWeb3 = getWeb3()
-      const myContract = new myWeb3.eth.Contract(GENESIS_INO_ABI, config.genesisInocontractaddress)
-      const res = await myContract.methods.isJoinable(buyer, quantity).call()
-      return res
-    } catch (error) {
-      console.error('isJoinable', error)
-      return false
-    }
-  }
+  // const isJoinable = async (buyer, quantity) => {
+  //   try {
+  //     const myWeb3 = getWeb3()
+  //     const myContract = new myWeb3.eth.Contract(GENESIS_INO_ABI, config.genesisInocontractaddress)
+  //     const res = await myContract.methods.isJoinable(buyer, quantity).call()
+  //     return res
+  //   } catch (error) {
+  //     console.error('isJoinable', error)
+  //     return false
+  //   }
+  // }
 
   const checkStage = async (buyer) => {
     try {
@@ -246,12 +246,12 @@ const useContract = () => {
     }
   }
 
-  const estimateGas = async (myContract, action, params, overwrite) => {
-    const gas = await myContract.methods[action](...params).estimateGas(
-      overwrite
-    )
-    return new Bignumber(gas).times(1.2).toFixed(0)
-  }
+  // const estimateGas = async (myContract, action, params, overwrite) => {
+  //   const gas = await myContract.methods[action](...params).estimateGas(
+  //     overwrite
+  //   )
+  //   return new Bignumber(gas).times(1.2).toFixed(0)
+  // }
 
   const sendRawTx = async (abi, addressContract, action, params, overwrite) => {
     const myWeb3 = getWeb3()

@@ -1,6 +1,5 @@
-import React from 'react'
 
-const index = ({ loading, ...props }) => {
+const index = ({ loading }) => {
   return (
     <div
       className={`loading-section flex items-center justify-center mt-8 ${

@@ -1,4 +1,3 @@
-import React from 'react'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import FormControl from '@mui/material/FormControl'
 import FormGroup from '@mui/material/FormGroup'

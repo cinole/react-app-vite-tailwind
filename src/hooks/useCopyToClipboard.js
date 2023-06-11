@@ -11,7 +11,6 @@ export const useCopyToClipboard = () => {
 
     // Try to save to clipboard then save it in the state if worked
     try {
-      // eslint-disable-next-line compat/compat
       await navigator.clipboard.writeText(text)
       setCopiedText(text)
       setTimeout(() => {

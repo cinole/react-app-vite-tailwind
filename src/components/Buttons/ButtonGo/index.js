@@ -1,4 +1,3 @@
-import React from 'react'
 import ArrowRight from '@/static/svg/arrow-next.svg'
 
 const index = props => {

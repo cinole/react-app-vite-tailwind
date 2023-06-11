@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { Box } from '@mui/material'
 
 import { useCountdown } from '@/hooks/useCountdown'
 
-const index = ({ time, handleResetTime }) => {
+const Index = ({ time, handleResetTime }) => {
   const { days, hours, minutes, seconds, timeLeft } = useCountdown(time * 1000)
 
   // console.log('time', time)
@@ -20,4 +20,4 @@ const index = ({ time, handleResetTime }) => {
   )
 }
 
-export default index
+export default Index

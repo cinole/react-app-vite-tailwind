@@ -6,12 +6,11 @@ const multicallAddress = config.multicall
 const multicall = async (web3, calls, options) => {
   try {
     const multi = new web3.eth.Contract(multicallABI, multicallAddress)
-    const calldata = calls.map((call, i) => {
+    const calldata = calls.map((call) => {
       const itf = new Interface(call.abi)
       call.itf = itf
       return [call.address.toLowerCase(), itf.encodeFunctionData(call.name, call.params)]
     })
-    // eslint-disable-next-line no-useless-call
     const { returnData } = await multi.methods.aggregate(calldata).call(undefined, options.blockNumber)
     const res = returnData.map((call, i) => calls[i].itf.decodeFunctionResult(calls[i].name, call))
     return res

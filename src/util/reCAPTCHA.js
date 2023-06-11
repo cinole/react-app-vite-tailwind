@@ -1,5 +1,7 @@
-export const siteKey = process.env.REACT_APP_reCAPTCHA_SITE_KEY
-export const isEnable = Boolean(Number(process.env.REACT_APP_reCAPTCHA_ENABLE))
+const env = import.meta.env
+
+export const siteKey = env.REACT_APP_reCAPTCHA_SITE_KEY
+export const isEnable = Boolean(Number(env.REACT_APP_reCAPTCHA_ENABLE))
 export const _config = {
   siteKey,
   isEnable,
@@ -13,7 +15,7 @@ export const _config = {
  * load reCAPTCHA cdn bundle
  * @param {Function} callback
  */
-export const load = callback => {
+export const load = () => {
   if (_config.load) {
     return
   }
@@ -21,7 +23,7 @@ export const load = callback => {
   _config.load = true
   const script = document.createElement('script')
   script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`
-  script.onload = function (...args) {
+  script.onload = function () {
     _config.loaded = true
     _config.instance = window.grecaptcha
     _config.instance.ready(() => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import OderItem from './OderItem'
 
@@ -124,7 +124,7 @@ const listOder = [
     ]
   }
 ]
-const index = () => {
+const Index = () => {
   const [tab, setTab] = useState(0)
 
   return (
@@ -172,4 +172,4 @@ const index = () => {
     </>
   )
 }
-export default index
+export default Index

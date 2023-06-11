@@ -5,7 +5,7 @@ import Header from '@/layout/Header'
 import Loading from '@/components/LoadingLayer'
 import ModalSelectConnect from '@/layout/ModalSelectConnect'
 
-const index = (props) => {
+const index = () => {
   const loading = true
 
   return (

@@ -13,7 +13,7 @@ import {
 // import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
 
-const Index = ({ options, arrow, ...rest }) => {
+const Index = ({ options, ...rest }) => {
   const [open, setOpen] = useState(false)
   const anchorRef = useRef(null)
   const [selectedIndex, setSelectedIndex] = useState(1)

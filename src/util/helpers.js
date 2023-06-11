@@ -1,5 +1,4 @@
 import { toast } from 'react-toastify'
-import { useEffect } from 'react'
 
 export const errorNotify = notify => {
   toast.error(notify.message, {
@@ -258,26 +257,26 @@ export const scrollToTop = (smooth = true) => {
   }, 2)
 }
 
-export const onClickOutside = (ref, handler) => {
-  useEffect(() => {
-    const listener = event => {
-      // Do nothing if clicking ref's element or descendent elements
-      if (!ref.current || ref.current.contains(event.target)) {
-        return
-      }
+// export const onClickOutside = (ref, handler) => {
+//   useEffect(() => {
+//     const listener = event => {
+//       // Do nothing if clicking ref's element or descendent elements
+//       if (!ref.current || ref.current.contains(event.target)) {
+//         return
+//       }
 
-      handler(event)
-    }
+//       handler(event)
+//     }
 
-    document.addEventListener('mousedown', listener)
-    document.addEventListener('touchstart', listener)
+//     document.addEventListener('mousedown', listener)
+//     document.addEventListener('touchstart', listener)
 
-    return () => {
-      document.removeEventListener('mousedown', listener)
-      document.removeEventListener('touchstart', listener)
-    }
-  }, [ref, handler])
-}
+//     return () => {
+//       document.removeEventListener('mousedown', listener)
+//       document.removeEventListener('touchstart', listener)
+//     }
+//   }, [ref, handler])
+// }
 
 // Local storage
 export const setLocalStorage = (key, value) => {
@@ -319,7 +318,6 @@ export default {
   alphabeticalSort,
   convertErrorYup,
   scrollToTop,
-  onClickOutside,
   setLocalStorage,
   getLocalStorage
 }

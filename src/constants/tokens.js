@@ -1,4 +1,3 @@
-import { env } from '@/constants/env'
 import config from '@/config'
 const CHAIN_ID = config.chainId
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'

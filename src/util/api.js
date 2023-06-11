@@ -1,11 +1,6 @@
 import http from '@/util/http'
 import { env } from '@/constants/env'
-import { getLocalStorage } from './helpers'
-import axios from 'axios'
-import { objectToQueryString } from './url'
 const URL = env.app.apiUrl
-const URL_Metadata = env.app.metadataUrl
-const BOX_URL = env.app.metadataBoxUrl
 
 const URLs = {
   authNonce: `${URL}/api/v1/authentication/nonce`,

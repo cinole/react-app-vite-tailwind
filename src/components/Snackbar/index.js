@@ -1,4 +1,3 @@
-import React from 'react'
 import { Typography } from '@mui/material'
 import IconSuccess from '@/static/icons/i-message-success.svg'
 import IconError from '@/static/icons/i-message-error.svg'
