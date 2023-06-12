@@ -1,4 +1,7 @@
 import { useRef, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import store from '@/store'
+
 import { useNavigate, Link } from 'react-router-dom'
 import { AppBar, Slide, Toolbar } from '@mui/material'
 
@@ -9,6 +12,7 @@ import { useWeb3Context } from '@/context/Web3Context'
 import { threeDots } from '@/util/formatData'
 // import { useLocation } from 'react-router-dom'
 // import { resetState } from '@/util/auth'
+import { fetchJobDetail, fetchJobDetailSuccess } from '@/store/action'
 
 import CopyToClipboard from '@/components/CopyToClipboard'
 import useScrollTrigger from '@mui/material/useScrollTrigger'
@@ -27,13 +31,18 @@ const Index = () => {
   const { currentAccount, setCurrentAccount } = useWeb3Context()
   const { setOpenModalConnect } = useCommonContext()
 
+  const dispatch = useDispatch()
+
 
   // const [copiedText, copy] = useCopyToClipboard()
 
   const handleClickConnect = () => {
     if (!currentAccount) setOpenModalConnect(true)
     // else resetState()
+    dispatch(fetchJobDetail()) //!store.getState().loading
+    dispatch(fetchJobDetailSuccess({ id: 1, key1: "value1", key2: "value2" }))
   }
+  console.log(store.getState());
 
   const HideOnScroll = (props) => {
     const { children, window } = props
