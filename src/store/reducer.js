@@ -1,4 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit'
+import { combineReducers } from 'redux'
+
 // import {
 //   fetchJobDetail,
 //   fetchJobDetailSuccess,
@@ -24,13 +26,13 @@ const initialState = {
 //     state.error = action.payload
 //   },
 // })
-const reducer = createReducer(initialState, (builder) => {
+const root = createReducer(initialState, (builder) => {
   builder
     .addCase('fetch_job_detail', (state, action) => {
       state.loading = true
     })
     .addCase('fetch_job_detail_success', (state, action) => {
-    //   state.loading = false
+      //   state.loading = false
       state.jobDetail = action.payload
     })
     .addCase('fetch_job_detail_fail', (state, action) => {
@@ -38,5 +40,11 @@ const reducer = createReducer(initialState, (builder) => {
       state.error = action.payload
     })
 })
+const reducers = combineReducers({
+  root,
+  // theme,
+  // loading,
+  // connect
+})
 
-export default reducer
+export default reducers
